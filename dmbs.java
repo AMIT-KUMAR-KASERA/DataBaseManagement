@@ -429,6 +429,30 @@ old   4: MARKS:=&MARKS;
 new   4: MARKS:=90;
 Grade A
 
+ 
+OR
+
+ SQL> DECLARE
+  2  V_MARKS NUMBER(10);
+  3  BEGIN
+  4  SELECT MARKS INTO V_MARKS FROM STUDENT111 WHERE SID=&SID;
+  5  IF(V_MARKS>=90)THEN
+  6  DBMS_OUTPUT.PUT_LINE('A GRADE');
+  7  ELSIF(V_MARKS>=80)THEN
+  8  DBMS_OUTPUT.PUT_LINE('B GRADE');
+  9  ELSIF(V_MARKS>=70)THEN
+ 10  DBMS_OUTPUT.PUT_LINE('C GRADE');
+ 11  ELSIF V_MARKS>=35 THEN
+ 12  DBMS_OUTPUT.PUT_LINE('D GRADE');
+ 13  ELSE
+ 14  DBMS_OUTPUT.PUT_LINE('FAIL');
+ 15  END IF;
+ 16  END;
+ 17  /
+Enter value for sid: 2
+C GRADE
+
+PL/SQL procedure successfully completed.
 --------------------------------------------------------------------------
 
 
